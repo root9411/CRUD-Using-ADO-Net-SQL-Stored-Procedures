@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ADO_Example.Models.Product>
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+<table class="table table-responsive table-bordered table-hover">
+
+    <thead>
+        <tr class="table">
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Qty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Remarks)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Qty)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Remarks)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ProductId },new {@class="btn btn-primary"})
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@Html.ActionLink("Back to List", "Index") 
